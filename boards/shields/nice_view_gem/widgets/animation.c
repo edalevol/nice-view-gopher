@@ -20,8 +20,14 @@ LV_IMG_DECLARE(goph8);
 // LV_IMG_DECLARE(crystal_16);
 
 const lv_img_dsc_t *anim_imgs[] = {
-    &goph1, &goph2, &goph3, &goph4, &goph5, &goph4,
-    &goph3, &goph6, &goph7, &goph6, &goph3, &goph2,
+  // look from left to right
+    &goph1, &goph2, &goph3, &goph4, &goph5, 
+    // right to middle
+    &goph4, &goph3, 
+    // surprise
+    // &goph6, &goph7, &goph6, 
+    // middle to left
+    &goph3, &goph2,
 };
 
 void draw_animation(lv_obj_t *canvas) {
@@ -29,7 +35,7 @@ void draw_animation(lv_obj_t *canvas) {
     lv_obj_t *art = lv_animimg_create(canvas);
     lv_obj_center(art);
 
-    lv_animimg_set_src(art, (const void **)anim_imgs, 12);
+    lv_animimg_set_src(art, (const void **)anim_imgs, 9);
     lv_animimg_set_duration(art, CONFIG_NICE_VIEW_GEM_ANIMATION_MS);
     lv_animimg_set_repeat_count(art, CONFIG_NICE_VIEW_GEM_ANIMATION_REPEAT);
     lv_animimg_start(art);
