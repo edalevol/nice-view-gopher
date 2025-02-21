@@ -51,7 +51,6 @@ static void restart_animation(lv_timer_t * timer) {
 static void schedule_animation_restart(lv_obj_t * art) {
     int delay = (rand() % 11 + 5) * 1000; // Random delay between 5s and 15s
     lv_timer_t * timer = lv_timer_create(restart_animation, delay, art);
-    lv_timer_set_repeat_count(timer, -1); // Infinite repeats
 }
 
 void draw_animation(lv_obj_t *canvas) {
